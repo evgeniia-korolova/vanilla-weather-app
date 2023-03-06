@@ -1,9 +1,18 @@
 function displayTemperature(response) {
     console.log(response.data);
     let temperatureElement = document.querySelector(`#temperature`);
+    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    let cityElement = document.querySelector(`#city`);
+    cityElement.innerHTML = response.data.name;
+    let descriptionElement = document.querySelector(`#description`);
+    descriptionElement.innerHTML = response.data.weather[0].description;
+    let humidityElement = document.querySelector(`#humidity`);
+    humidityElement.innerHTML = response.data.main.humidity;
+    let windElement = document.querySelector(`#wind`);
+    windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
-let apiKey = '82903b2bbd2tcf4oe06f2aa9495a97b0';
+let apiKey = '98255997d79b40899ce1b4e55319818b';
 let city = 'New York';
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
