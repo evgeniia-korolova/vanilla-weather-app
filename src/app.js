@@ -12,7 +12,7 @@ function formatDate(timestamp) {
       'Sunday',
       'Monday',
       'Tuesday',
-      'Wensday',
+      'Wednesday',
       'Thursday',
       'Friday',
       'Saturday',
@@ -26,15 +26,17 @@ function formatDate(timestamp) {
 
 function displayTemperature(response) {
     //console.log(response.data);
-    let temperatureElement = document.querySelector(`#temperature`);
-    let cityElement = document.querySelector(`#city`);
-    let descriptionElement = document.querySelector(`#description`);
-    let humidityElement = document.querySelector(`#humidity`);
-    let windElement = document.querySelector(`#wind`);
-    let dateElement = document.querySelector(`#date`);
-    let iconElement = document.querySelector(`#icon`);
+  let temperatureElement = document.querySelector(`#temperature`);
+  let cityElement = document.querySelector(`#city`);
+  let descriptionElement = document.querySelector(`#description`);
+  let humidityElement = document.querySelector(`#humidity`);
+  let windElement = document.querySelector(`#wind`);
+  let dateElement = document.querySelector(`#date`);
+  let iconElement = document.querySelector(`#icon`);
   
-    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
     cityElement.innerHTML = response.data.name;
     descriptionElement.innerHTML = response.data.weather[0].description;
     humidityElement.innerHTML = response.data.main.humidity;
@@ -57,7 +59,32 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Odessa");
+function displayFahrenheightTemperature (event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(`#temperature`);
+  celsiusLink.classList.remove("active");
+  fahrenheightLink.classList.add("active");
+  let fahrenheightTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheightTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(`#temperature`);
+  celsiusLink.classList.add('active');
+  fahrenheightLink.classList.remove('active');
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheightLink = document.querySelector('#fahrenheight-link');
+fahrenheightLink.addEventListener('click', displayFahrenheightTemperature);
+
+let celsiusLink = document.querySelector('#celsius-link');
+celsiusLink.addEventListener('click', displayCelsiusTemperature);
+
+search("Odessa");
