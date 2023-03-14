@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link
       rel="stylesheet"
@@ -12,60 +12,88 @@
       crossorigin="anonymous"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="./src/styles.css">
-   
-</head>
-<body>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
     <div class="weather-app-wrapper">
-        <div class="weather-app">
-            <form id="search-form" class="mb-3">
-                <div class="row">
-                    <div class="col-9">
-                    <input type="search" placeholder="Type a city..." class="form-control" id="city-input">
-                </div>
-                <div class="col-3">
-                <input type="submit" value="Search" 
-                class="btn btn-primary w-100">
-                </div>
-                </div>
-            </form>
-                <div class="container">
-                <div class="overview">
-        <h1 id="city"></h1>
-        <ul>
-            <li>Last updated: <span id="date"></span> </li>
-            <li id="description"></li>
-        </ul>
-                </div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="d-flex weather-temperature">
-            <img src="" alt=""
-            id="icon">
-                        <div>
-                           <strong id="temperature"></strong> 
-                           <span class="units"><a href="#" id="celsius-link" class="active">°C </a>| <a href="#" id="fahrenheight-link"> °F</a></span> 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-            <ul>           
-            <li>
-                Humidity: <span id="humidity"></span> %
-            </li>
-            <li>
-                Wind: <span id="wind"></span> km/h
-            </li>
+      <div class="weather-app">
+        <form id="search-form" class="mb-3">
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                placeholder="Type a city..."
+                class="form-control"
+                id="city-input"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="btn btn-primary w-100"
+              />
+            </div>
+          </div>
+        </form>
+        <div class="container">
+          <div class="overview">
+            <h1 id="city"></h1>
+            <ul>
+              <li>Last updated: <span id="date"></span></li>
+              <li id="description"></li>
             </ul>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="d-flex weather-temperature">
+                <img src="" alt="" id="icon" />
+                <div>
+                  <strong id="temperature"></strong>
+                  <span class="units"
+                    ><a href="#" id="celsius-link" class="active">°C </a>|
+                    <a href="#" id="fahrenheight-link"> °F</a></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span> %</li>
+                <li>Wind: <span id="wind"></span> km/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="weather-forecast">
+          <div class="row">
+            <div class="col-2">
+              <div class="weather-forecast-date">Thu</div>
+              <img
+                src="https://openweathermap.org/img/wn/03n@2x.png"
+                alt=""
+                width="42"
+              />
+                <div class="weather-forecast-temperature">
+                    <span class="weather-forecast-temperature-max">
+                    18° 
+                    </span>
+                    <span class="weather-forecast-temperature-min">
+                    12°
+                    </span>
                 </div>
             </div>
-    
+          </div>
         </div>
+      </div>
+      <small>
+        <a
+          href="https://github.com/evgeniia-korolova/vanilla-weather-app"
+          target="_blank"
+          >Open-source code</a
+        >, by Evgeniia Korolova
+      </small>
     </div>
-    <small>
-        <a href="https://github.com/evgeniia-korolova/vanilla-weather-app" target="_blank">Open-source code</a>, by Evgeniia Korolova
-    </small>
-    </div>
-   <script src="./src/app.js"></script> 
-</body>
+    <script src="./src/app.js"></script>
+  </body>
 </html>
