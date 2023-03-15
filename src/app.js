@@ -21,7 +21,40 @@ function formatDate(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
 
+  let forecastHTML = `<div class="row">`;
+  let days = ['Fri', 'Sat', 'Sun', 'Mon', 'Tue'];
+  days.forEach(function (day) {
+   forecastHTML =
+     forecastHTML +
+     `
+              <div class="col-2">
+              <div class="weather-forecast-date">${day}</div>
+              <img
+                src="https://openweathermap.org/img/wn/03n@2x.png"
+                alt=""
+                width="42"
+              />
+                <div class="weather-forecast-temperature">
+                    <span class="weather-forecast-temperature-max">
+                    18° 
+                    </span>
+                    <span class="weather-forecast-temperature-min">
+                    12°
+                    </span>
+                </div>
+            </div>
+            `; 
+  })
+  
+  
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+  }
 
 
 function displayTemperature(response) {
@@ -33,6 +66,8 @@ function displayTemperature(response) {
   let windElement = document.querySelector(`#wind`);
   let dateElement = document.querySelector(`#date`);
   let iconElement = document.querySelector(`#icon`);
+
+  
   
   celsiusTemperature = response.data.main.temp;
   
@@ -47,7 +82,7 @@ function displayTemperature(response) {
 }
 
 function search(city) {
-  let apiKey = '98255997d79b40899ce1b4e55319818b'; 
+  let apiKey = '0ebc654fccbc00189d5408f3d6f15b08'; 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 
@@ -87,4 +122,5 @@ fahrenheightLink.addEventListener('click', displayFahrenheightTemperature);
 let celsiusLink = document.querySelector('#celsius-link');
 celsiusLink.addEventListener('click', displayCelsiusTemperature);
 
-search("Odessa");
+search("Odesa");
+displayForecast();
