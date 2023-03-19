@@ -29,14 +29,13 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  //console.log(response.data.daily);
-
+  
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ['Fri', 'Sat', 'Sun', 'Mon', 'Tue'];
+ 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
@@ -64,7 +63,7 @@ function displayForecast(response) {
   
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  //console.log(forecastHTML);
+  
 }
   
 function getForecast(coordinates) {
@@ -77,7 +76,7 @@ function getForecast(coordinates) {
 
 
 function displayTemperature(response) {
-    //console.log(response.data);
+   
   let temperatureElement = document.querySelector(`#temperature`);
   let cityElement = document.querySelector(`#city`);
   let descriptionElement = document.querySelector(`#description`);
@@ -97,7 +96,7 @@ function displayTemperature(response) {
     windElement.innerHTML = Math.round(response.data.wind.speed);
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
     iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-  iconElement.setAttribute('alt', response.data.weather[0].description);
+    iconElement.setAttribute('alt', response.data.weather[0].description);
   
   getForecast(response.data.coord);
 }
@@ -115,33 +114,7 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheightTemperature (event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector(`#temperature`);
-  celsiusLink.classList.remove("active");
-  fahrenheightLink.classList.add("active");
-  let fahrenheightTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheightTemperature);
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector(`#temperature`);
-  celsiusLink.classList.add('active');
-  fahrenheightLink.classList.remove('active');
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenheightLink = document.querySelector('#fahrenheight-link');
-fahrenheightLink.addEventListener('click', displayFahrenheightTemperature);
-
-let celsiusLink = document.querySelector('#celsius-link');
-celsiusLink.addEventListener('click', displayCelsiusTemperature);
-
 search("Odesa");
-//displayForecast();
