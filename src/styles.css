@@ -13,9 +13,9 @@ body {
 h1 {
     font-family: Alkatra;
     color: #081b86;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 400;    
-    line-height: 28px;
+    line-height: 1.2;
     margin-bottom: 10px;    
 }
 
@@ -36,6 +36,7 @@ li {
 
 .date {
     font-weight: 600;
+    font-family: Alkatra;
 }
 
 li::first-letter {
@@ -51,8 +52,7 @@ li::first-letter {
 }
 
 .weather-app {
-    padding: 20px;    
-    
+    padding: 20px;        
 }
 
 .form-control, 
@@ -63,6 +63,10 @@ li::first-letter {
 
 .form-control {
     background-color: rgb(255, 255, 255);
+}
+
+.btn.btn-primary {
+    width: 90%;
 }
 
 .overview {
@@ -106,6 +110,7 @@ li::first-letter {
     margin-top: 20px;
     text-align: center;
     color: #000;
+    
 }
 .weather-forecast-date {
     font-size: 16px;
@@ -128,4 +133,12 @@ footer {
 
 .reference {
     color: #081b86;
+}
+
+.weather-forecast-day {
+ border: 1px solid #081b86;
+  border-radius: 5px;
+  margin: 5px 5px;
+  padding: 0;
+  max-width: 14.99%;
 }
