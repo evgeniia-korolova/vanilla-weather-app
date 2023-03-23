@@ -6,6 +6,7 @@ body {
     margin: 100px auto;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0.95;
 }
 
@@ -57,7 +58,7 @@ li::first-letter {
 
 .form-control, 
 .btn.btn-primary {
-    border: 1px solid #041c3c;
+    border: 1px solid #081b86;
     border-radius: 15px;
 }
 
@@ -67,15 +68,11 @@ li::first-letter {
 
 .btn.btn-primary {
     width: 90%;
+    background-color: #081b86;
 }
 
 .overview {
     margin-bottom: 20px;
-}
-
-.info{
-    font-style: italic;
-    font-weight: 100;
 }
 
 .weather-temperature img {
@@ -137,8 +134,13 @@ footer {
 
 .weather-forecast-day {
  border: 1px solid #081b86;
-  border-radius: 5px;
-  margin: 5px 5px;
-  padding: 0;
+  border-radius: 5px;  
   max-width: 14.99%;
+  padding:  0;
+  margin: 5px;
+  transition: all 150ms ease-in-out;
+}
+
+.weather-forecast-day:hover {
+    background-color: rgba(116, 180, 218, 0.2);
 }
